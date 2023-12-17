@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/stylesheets/stories.css">
+
+
+    <meta name="author" content= <%= allData.items[index]['author-name'] %>>
+    <meta name = "news keywords" content = <%= allData.items[index].seo["meta-keywords"] %>>
+    <meta name = "description" content = <%= allData.items[index].seo["meta-description"] %>>
+    <meta name = "title" content=<%= allData.items[index].seo["meta-title"] %>>
+    <meta name = "keywords" content= <%= allData.items[index].seo["meta-keywords"] %>>
+
+    <!-- open graph og generator -->
+    <meta property="og:type" content="article">
+    <meta property = "og:title" content= <%= allData.items[index]['headline'] %> >
+    <meta property = "og:url" content = <%= allData.items[index]['slug'] %>>
+    <meta property = "og:image" content = <%= allData.items[index]['hero-image-metadata']["file-name"] %>>
+    <meta property="og:image:width" content = "1200" >
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content=<%= allData.items[index]['hero-image-attribution'] %>>
+
+
+    <!-- twitter graph  -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content=  <%= allData.items[index]['headline'] %> >
+    <meta name="twitter:image" content = <%= allData.items[index]['hero-image-metadata']["file-name"] %>>
+    <meta property="twitter:image:alt" content=  <%= allData.items[index]['hero-image-attribution'] %>>
+    <style>
+        
+    </style>
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="whole" style="background: url('<%= imageURI %>'); filter: blur(30px); ">
+        
+    </div>
+    <div class= 'btn'>
+        <form method="GET" action="/prev">
+    <button class = 'prev'>PREV</button>
+</form>
+</div>
+    <div class="container" style="background:   url('<%= imageURI %>');">
+        <img class="logo" src = "https://quintype-dropbox.s3-accelerate.amazonaws.com/prabhatkhabar.quintype.com/2020-02-26/1232/logo_512.png" alt = "img">
+        <div class="news">
+            
+            <h2 class="headline" id = 'headline'><%= allData.items[index].cards[currentCardIndex]["story-elements"][1].text %></h2>
+            <p class="headline"><%= allData.items[index].cards[currentCardIndex]["story-elements"][2].text %></p>
+            
+            <p><%= allData.items[index].cards[0]["story-elements"][0].title %> | <%= allData.items[index].cards[0]["story-elements"][0]['image-attribution'] %></p>
+        </div>
+        </div>
+        <div class = 'btn-next'>
+            <form method="GET" action="/next">
+        <button class="next" id="nextButton" >NEXT</button>
+    </form>
+    </div>
+
+</body>
+</html>
